@@ -18,7 +18,7 @@ if (@() -ne $null) { 'true' }else { 'false' }
 
 #region
 if ($null -eq @()) { 'true' }else { 'false' }
-if ($null -eq @()) { 'true' }else { 'false' }
+if ($null -ne @()) { 'true' }else { 'false' }
 #endregion
 #endregion
 #endregion
