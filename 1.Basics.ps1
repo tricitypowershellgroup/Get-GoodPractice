@@ -120,12 +120,12 @@ if ($Var1 -eq $True -and
 #region Filter Left, Format Right
 #region filter
 #region brzydko
-Measure-Command { Get-ADUser -filter * -Credential $cada | Where-Object samaccountname -eq 'adamm' }
+Measure-Command { Get-ADUser -filter * | Where-Object samaccountname -eq 'adamm' }
 Measure-Command { Get-ChildItem -Path C:\Windows -Depth 1 -Recurse -ErrorAction SilentlyContinue | Where-Object Name -eq 'cleanmgr.exe' }
 #endregion
 
 #region ładnie
-Measure-Command { Get-ADUser -filter "samaccountname -eq 'adamm'" -Credential $cada }
+Measure-Command { Get-ADUser -filter "samaccountname -eq 'adamm'" }
 Measure-Command { Get-ChildItem -Path C:\Windows -Depth 1 -Recurse -Filter 'cleanmgr.exe' -ErrorAction SilentlyContinue }
 #endregion
 #endregion
@@ -144,10 +144,10 @@ Get-Process | Select-Object -Property Name | Format-List
 
 #region ilość atrybutów
 #region brzydko
-Measure-Command { Get-ADComputer -filter * -Credential $cada -Properties * | Select-Object -First 100 | Where-Object operatingsystem -like *2003* }
+Measure-Command { Get-ADComputer -filter * -Properties * | Select-Object -First 100 | Where-Object operatingsystem -like *2003* }
 #endregion
 
 #region ładnie
-Measure-Command { Get-ADComputer -filter * -Credential $cada -Properties operatingsystem | Select-Object -First 100 | Where-Object operatingsystem -like *2003* }
+Measure-Command { Get-ADComputer -filter * -Properties operatingsystem | Select-Object -First 100 | Where-Object operatingsystem -like *2003* }
 #endregion
 #endregion
